@@ -1,6 +1,7 @@
 body {
-    background-color: black;
+    background-color: rgb(167, 1, 1);
 }
+
 
 .fill {
     position: absolute;
@@ -30,6 +31,7 @@ body {
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
+    color: rgb(238, 76, 1);
 }
 
 .anchor {

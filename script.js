@@ -6,7 +6,7 @@ autoResize(clock, 295 + 32)
 
 choose(clock, [
     ["hour", ["text", "text-quarters", "pill"]],
-    ["hour-text", ["large", "small"] ]
+    ["hour-text", ["large", "small"]],
     ["hour-display", ["all", "quarters", "none"]],
     ["minute", ["line", "dot"]],
     ["minute-display", ["fine", "fine-2", "coarse", "major", "none"]],
@@ -15,12 +15,10 @@ choose(clock, [
 ])
 
 function utilityClock(container){
-
     var dynamic = container.querySelector(".dynamic")
     var hourElement = container.querySelector(".hour")
     var minuteElement = container.querySelector(".minute")
     var secondElement = container.querySelector(".second")
-    
     var div = function (className, innerHTML) {
         var element = document.createElement("div")
         element.className = className
@@ -43,8 +41,8 @@ function utilityClock(container){
         append(element).to(anchor).to(dynamic)
     }
 
-    var minute = function(n) {
-        var klass = n % 5 == 0 ? "major" : n % 1 == 0? "whole" : "part"
+    var minute = function (n) {
+        var klass = n % 5 == 0 ? "major" : n % 1 == 0 ? "whole" : "part"
         var line = div("element minute-line" + klass)
         anchor(line, n)
         if (n % 5 == 0) {
@@ -60,7 +58,7 @@ function utilityClock(container){
         var klass = "hour-item hour-" + n
         var line = div("element hour-pill" + klass)
         anchor(line, n * 5)
-        var text = div("expand content", n)
+        var text = div("anchor hour-text" + klass)
         var content = div("expand content", n)
         append(content).to(text)
         rotate(text, -n * 5)
@@ -75,7 +73,7 @@ function utilityClock(container){
     }
 
     var rotate = function (element, second) {
-        element.style.transform = element.style.webkitTransform = "rotate(' + (second * 6) + 'deg)"
+        element.style.transform = element.style.webkitTransform = 'rotate(' + (second * 6) + 'deg)'
     }
 
     var animate = function () {
@@ -91,8 +89,8 @@ function utilityClock(container){
 
     }
 
-    for (var i = 1 / 4; i <= 60; i += 1 / 4)minute(i)
-    for (var i = 1; i <= 12; i++)hour(i)
+    for (var i = 1 / 4; i <= 60; i += 1 / 4) minute(i)
+    for (var i = 1; i <= 12; i++) hour(i)
 
     animate()
 }
@@ -117,7 +115,7 @@ function choose(clock, items) {
         update()
         chooser.appendChild(element)
         function update() {
-            element.innerHTML= name + "-style-<b>" + getValue() + "</b>" 
+            element.innerHTML = name + "-style-<b>" + getValue() + "</b>" 
         }
        
         function klass(c) {
@@ -134,7 +132,7 @@ function choose(clock, items) {
             for (var i = 0; i < styles.length; i++) {
                 if (clock.classList.contains(klass(styles[i]))) {
                     clock.classList.remove(klass(styles[i]))
-                    clock.classList.add(klass(styles[(i + 1) % styles.length ]))
+                    clock.classList.add(klass(styles[(i + 1) % styles.length]))
                     break
                 }
             }
@@ -147,6 +145,5 @@ function choose(clock, items) {
     
 }
 
-const card = "Haleem"
-console.log(card)
+
  
