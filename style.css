@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(167, 1, 1);
+    background-color: black;
 }
 
 
@@ -9,6 +9,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+   
 }
 
 .clock {
@@ -16,6 +17,7 @@ body {
     opacity: 1;
     left: 50%;
     top: 50%;
+    
 }
 
 .centre {
@@ -31,7 +33,6 @@ body {
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
-    color: rgb(238, 76, 1);
 }
 
 .anchor {
@@ -82,7 +83,7 @@ border: 2px solid rgb(255, 102, 0);
 .second-hand-front {
     width: 2px;
     height: 137px;
-    opacity: 1;
+    background: orange;
     transform: translate(-50%, -100%) translateY(-3px);
 }
 
@@ -117,11 +118,12 @@ border: 2px solid rgb(255, 102, 0);
 
 .minute-hand {
     height: 112px;
+    
 }
 
 .single-line {
     background: white;
-    width: 3px;
+    width: 1px;
     height: 9px;
     transform: translate(-50%, -100%) translatY(-113px);
     opacity: 0.34
@@ -217,6 +219,7 @@ border: 2px solid rgb(255, 102, 0);
     transform: translate(-50%, -100%) translateY(-134px);
     border-radius: 6px;
     opacity: 0.75;
+    color: white;
 }
 
 .minute-style-dot .part.minute-line,
@@ -288,5 +291,14 @@ opacity: 0;
     z-index: 1;
     opacity: 0.5s;  
 }
+
+#chooser div {
+    cursor: pointer;
+}
+
+#chooser div:hover {
+    background-color:rgba(255, 255, 255, 0.4);
+}
+
 
 

@@ -22,7 +22,7 @@ function utilityClock(container){
     var div = function (className, innerHTML) {
         var element = document.createElement("div")
         element.className = className
-        element.innerHTML = innerHTML || " "
+        element.innerHTML = innerHTML || ""
         return element
     }
 
@@ -43,11 +43,11 @@ function utilityClock(container){
 
     var minute = function (n) {
         var klass = n % 5 == 0 ? "major" : n % 1 == 0 ? "whole" : "part"
-        var line = div("element minute-line" + klass)
+        var line = div("element minute-line " + klass)
         anchor(line, n)
         if (n % 5 == 0) {
-            var text = div("anchor minute-text" + klass)
-            var content = div("expand content", (n < 10 ? "0" : "") + n)
+            var text = div("anchor minute-text " + klass)
+            var content = div("expand content", (n < 10 ? "0" : " ") + n)
             append(content).to(text)
             rotate(text, -n)
             anchor(text, n)
@@ -56,9 +56,9 @@ function utilityClock(container){
 
     var hour = function (n) {
         var klass = "hour-item hour-" + n
-        var line = div("element hour-pill" + klass)
+        var line = div("element hour-pill " + klass)
         anchor(line, n * 5)
-        var text = div("anchor hour-text" + klass)
+        var text = div("anchor hour-text " + klass)
         var content = div("expand content", n)
         append(content).to(text)
         rotate(text, -n * 5)
@@ -66,7 +66,7 @@ function utilityClock(container){
         return
     }
 
-    var position = function (element, phone, r) {
+    var position = function (element, phase, r) {
         var theta = phase * 2 * Math.PI
         element.style.top = (-r * Math.cos(theta)).toFixed(1) + "px"
         element.style.left = (r * Math.sin(theta)).toFixed(1) + "px"
@@ -99,7 +99,7 @@ function autoResize(element, nativeSize) {
     var update = function () {
         var parent = element.offsetParent
         var scale = Math.min(parent.offsetWidth, parent.offsetHeight) / nativeSize
-        element.style.transform = element.style.webkitTransform = 'scale(' + scale.toFixed(3) + ')'
+        element.style.transform = element.style.webkitTransform ='scale(' + scale.toFixed(3) + ')'
     }
     update()
     window.addEventListener("resize", update)
